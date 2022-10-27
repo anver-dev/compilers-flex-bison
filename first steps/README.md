@@ -12,3 +12,4 @@ For generate executable file:
 ```
   cc lex.yy.c -lfl
 ```
+This command generate a.out file that can be executed. 
