@@ -1,4 +1,4 @@
-# Flexon and Bison
+# Flex and Bison
 
 ## What are?
 
@@ -7,3 +7,4 @@ originally tools for building compilers, but they have proven to be useful in ma
 areas.
 
 Formally, they implement Look-Ahead-Left-Right (as opposed to "recursive descent") parsing of non-ambiguous context-free (as opposed to "natural language") grammars.
+
