@@ -7,9 +7,9 @@
 
 %%
 
-1(01|0(00)*1)+      		      { printf("Cadena con 1's en posición impar.\n"); }
-.+					            { printf("Cadena invalida.\n"); 		}
-\n    					        { return 0; 					}
+[(00)*[(10)+|1(0)+)]*1?   { printf("Cadena con 1's en posición impar.\n"); } 
+.+					              { printf("Cadena invalida.\n"); 		}
+\n    					          { return 0; 					}
 
 %%
 
