@@ -1,12 +1,24 @@
 %{
   /* 
-  Ejercicio 3: Expresión regular para todas las cadenas que tienen 1’s 
-  únicamente en las posiciones impares en el alfabeto = {0|1}
+  Ejercicio 7: programa que acepta la micro sintaxis siguiente:
+    - Los identificadores de variables deben comenzar con minúscula seguida de una cadena , 
+      de longitud mayor o igual a cero, compuesta por letras minúsculas, letras mayúsculas, 
+      números y guión bajo.
+    - Números enteros: positivos y negativos.
+    - Números con decimales: positivos y negativos.
+    - Números en notación científica: -1.8E-92, 20.09E19, etc.
+    - Comentarios de un renglón.
+    - Operadores aritméticos: +, -, *, /, %
+    - Operadores relacionales y lógicos: <, >, <=, >=, ==. !=, &&, ||, !
+    - Paréntesis: ( ) { } [ ]
+    - Palabras reservadas: imprimir, leer, si, sino, mientras, para, haz, programa, 
+      entero, flotante, caracter, constante, regresa, romper, continuar.
+
   */
 %}
 
-DIGITO [0-9]
-DECIMAL [0-9]"."[0-9]
+DIGITO [0-9]+
+DECIMAL [0-9]+"."[0-9]+
 PALABRA_RESERVADA imprimir|leer|si|sino|mientras|para|haz|programa|entero|flotante|caracter|constante|regresa|romper|continuar
 OPERADOR_ARITMETICO "+"|"-"|"*"|"/"|"%"
 OPERADOR_RELACIONAL "<"|">"|"<="|">="|"=="|"!="
@@ -14,18 +26,21 @@ OPERADOR_LOGICO "&&"|"||"|"!"
 
 %%
 
-{PALABRA_RESERVADA}                         { printf("Esto es una palabra reservada\n");}
-[a-z][a-zA-Z0-9_]*			                    { printf("Esto es un identificador\n"); }
-("-"?{DIGITO})+                             { printf("Esto es un número entero\n"); }
-("-"?{DECIMAL})+                            { printf("Esto es un número con decimales\n"); }
-("-"?{DECIMAL}"E"("-"?){DIGITO})+           { printf("Esto es un número en notacion cientifica\n"); }
-"//".+                                      { printf("Esto es un comentario de un renglón\n"); }
-{OPERADOR_ARITMETICO}                       { printf("Esto es un operador aritmetico\n"); }
-({OPERADOR_RELACIONAL}|{OPERADOR_LOGICO})   { printf("Esto es un operador relacional o lógico\n"); }
-"()"|"{}"|"[]"                              { printf("Esto es un parentesis\n"); }
-[ \t]			                                  { /*ESPACIOS*/ }
-.+					                                { printf("Cadena invalida.\n"); 		}
-\n    					                            { return 0; 					}
+{PALABRA_RESERVADA}                         { printf("%s: palabra reservada\n", yytext); }
+[a-z][a-zA-Z0-9_]*			    { printf("%s: identificador\n", yytext); }
+{OPERADOR_RELACIONAL}                       { printf("%s: operador relacional\n", yytext); }
+{OPERADOR_LOGICO}                           { printf("%s: operador lógico\n", yytext); }
+{OPERADOR_ARITMETICO}                       { printf("%s: operador aritmetico\n", yytext); }
+"("|")"|"{"|"}"|"["|"]"                     { printf("%s: parentesis\n", yytext); }
+("-"?{DECIMAL}"E"("-"?){DIGITO})+           { printf("%s: número en notacion cientifica\n", yytext); }
+{DIGITO}                                    { printf("%s: número entero positivo\n", yytext); }
+"-"{DIGITO}                                 { printf("%s: número entero negativo\n", yytext); }
+{DECIMAL}                                   { printf("%s: número positivo con decimales\n", yytext); }
+"-"{DECIMAL}                                { printf("%s: número begativo con decimales\n", yytext); }
+"//".+                                      { printf("%s: comentario de un renglón\n", yytext); }
+[ \t]			                    { /*ESPACIOS*/ }
+.                                           { printf("%s: otro\n", yytext); }
+\n    					    { return 0; }
 
 %%
 
