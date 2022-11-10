@@ -4,15 +4,12 @@
   únicamente en las posiciones impares en el alfabeto = {0, 1}
   */
 %}
-CEROS_PARES (00)*
-P1 (10)*
-P2 1(0)+
-
 
 %%
-({CEROS_PARES}({P1}|{P2}))*1?   { printf("CADENA VALIDA\n"); }
-.+					                    { printf("CADENA INVALIDA.\n"); 		}
-\n    					                { return 0; 					}
+
+((00)*(10)*)*1?|1(0)+     { printf("CADENA VÁLIDA. \n"); }
+.+		          { printf("CADENA INVALIDA.\n"); }
+\n    			  { return 0; }
 
 %%
 
