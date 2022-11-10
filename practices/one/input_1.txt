@@ -1,0 +1,4 @@
+este es un texto
+de varias líneas y
+caracteres
+salir
