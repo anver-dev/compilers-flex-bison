@@ -4,18 +4,16 @@
   */
 %}
 
-ACD [a|c|d]
-
 %%
 
-({ACD}|b{ACD})*b?  			{ printf("Cadena sin b's consecutivas.\n"); }
-.+					            { printf("Cadena invalida.\n"); 		}
-\n    					        { return 0; 					}
+([a|c|d]|b[a|c|d])*b?  	{ printf("CADENA VÁLIDA.\n"); }
+.+     	                { printf("CADENA INVALIDA.\n"); }
+\n 		        { return 0; }
 
 %%
 
 int main() { 
-  printf("Introduce una cadena: ");
+  printf("Introduce una cadena sin b's consecutivas: ");
   yylex();
 
   return 0;
