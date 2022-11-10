@@ -3,13 +3,11 @@
      los ejercicios 2 y 3 */
 %}
 
-ACD [a|c|d]
-
 %%
 
 [s|S]"alir"	          { return 0; }
-({ACD}|b{ACD})*b?	  { printf("Cadena sin b's consecutivas.\n"); }
-1(01|0(00)*1)+      	  { printf("Cadena con 1's en posición impar.\n"); }
+([a|c|d]|b[a|c|d])*b?	  { printf("Cadena sin b's consecutivas.\n"); }
+((00)*(10)*)*1?|1(0)+     { printf("Cadena con 1's en posición impar.\n"); }
 .+			  { printf("Cadena invalida.\n"); }
 
 %%
