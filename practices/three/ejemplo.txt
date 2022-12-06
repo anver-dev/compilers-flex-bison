@@ -1,0 +1,9 @@
+principal() {
+    entero a, n, m, o, a1;
+    entero b, c, d, x <- 3;
+    entero b <- n; 
+    entero z, w <- 3;
+    flotante v <- 5.2;
+    cadena p <- "hola";
+    doble i <- "hola2";  
+}
