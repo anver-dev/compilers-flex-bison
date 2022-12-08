@@ -17,7 +17,17 @@ int yyerror(const char *s);
 %token ABRIR_BLOQUE CERRAR_BLOQUE
 %token PRINCIPAL
 %token LEER IMPRIMIR MIENTRAS
-%token OR
+%token MAS MENOS POR DIV MOD
+%token MENOR_QUE MAYOR_QUE MENOR_IGUAL_QUE MAYOR_IGUAL_QUE IGUAL_QUE DISTINTO
+
+
+%left MENOR_QUE MAYOR_QUE MENOR_IGUAL_QUE MAYOR_IGUAL_QUE IGUAL_QUE DISTINTO
+%left MAS MENOS
+%left POR DIV MOD
+
+%left OR
+%right ASIGNACION
+
 
 %%
 
@@ -33,9 +43,9 @@ declaraciones : /*cadena vacia*/
          
 declaracion : /*cadena vacia*/
             | tipoDato IDENTIFICADOR
-            | tipoDato IDENTIFICADOR '<''-' asignacion
+            | tipoDato IDENTIFICADOR ASIGNACION asignacion
             | declaracion ',' IDENTIFICADOR
-            | declaracion ',' IDENTIFICADOR '<''-' asignacion 
+            | declaracion ',' IDENTIFICADOR ASIGNACION asignacion 
             ;
 
 asignacion : /*cadena vacia*/

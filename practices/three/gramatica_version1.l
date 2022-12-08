@@ -22,6 +22,21 @@ LETRA [a-zA-Z]
 "doble"                     { return DOBLE;}
 "cadena"                    { return TIPO_CADENA;}
 "principal"                 { return PRINCIPAL; }
+"<-"                        { return ASIGNACION;}
+"+"                         { return MAS; }
+"*"                         { return POR; }
+"/"                         { return DIV; }
+"-"                         { return MENOS; }
+"%"                         { return MOD; }
+"<"                         { return MENOR_QUE; }
+">"                         { return MAYOR_QUE; }
+"<="                        { return MENOR_IGUAL_QUE; }
+">="                        { return MAYOR_IGUAL_QUE; }
+"=="                        { return IGUAL_QUE; }
+"!="                        { return DISTINTO; }
+"||"                        { return OR; }
+"&&"                        { return AND; }
+"!"                         { return NEGACION; }
 "\""[a-zA-Z0-9_,\- ]*"\""   { return CADENA; }
 0|[1-9]{DIGITO}*            { return NUMERO; }
 {DECIMAL}                   { return NUMERO_DECIMAL; }
