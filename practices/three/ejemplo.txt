@@ -5,5 +5,9 @@ principal() {
     entero z, w <- 3;
     flotante v <- 5.2;
     cadena p <- "hola";
-    doble i <- "hola2";  
+    doble i <- "hola2";
+    a<-2;
+    mientras(a - 6 > aaaa && a) {
+        imprimir("a");
+    };
 }
