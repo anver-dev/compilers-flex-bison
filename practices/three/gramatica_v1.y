@@ -3,7 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-#define YYSTYPE double
+#define YYSTYPE char*
 
 int yylex();
 int yyerror(const char *s);
@@ -15,7 +15,7 @@ int yyerror(const char *s);
 %token IDENTIFICADOR NUMERO NUMERO_DECIMAL
 %token ABRIR_BLOQUE CERRAR_BLOQUE
 %token PRINCIPAL
-%token LEER IMPRIMIR MIENTRAS PARA
+%token LEER IMPRIMIR MIENTRAS PARA SI OTRO
 
 %left MENOR_QUE MAYOR_QUE MENOR_IGUAL_QUE MAYOR_IGUAL_QUE 
 %left IGUAL_QUE DISTINTO
@@ -54,8 +54,7 @@ tipoDato : ENTERO
          | FLOTANTE
          | DOBLE
          | TIPO_CADENA
-         ; 
- 
+         ;  
 
 instrucciones : /*cadena vacia*/
               | instrucciones instruccion ';'
@@ -67,8 +66,23 @@ instruccion : LEER '(' IDENTIFICADOR ')'
             | MIENTRAS '(' expresion ')' ABRIR_BLOQUE
                  instrucciones
               CERRAR_BLOQUE
-            | PARA '(' expresion ')' ABRIR_BLOQUE
+            | PARA '(' expresion ';' expresion ';' expresion ')' ABRIR_BLOQUE
                  instrucciones
+              CERRAR_BLOQUE
+            |  PARA '(' IDENTIFICADOR ASIGNACION expresionAsignacion ';' expresion ';' expresion ')' ABRIR_BLOQUE
+                 instrucciones
+              CERRAR_BLOQUE
+            |  PARA '(' declaracion ';' expresion ';' expresion ')' ABRIR_BLOQUE
+                 instrucciones
+              CERRAR_BLOQUE
+             
+            | SI '(' expresion ')' ABRIR_BLOQUE
+                instrucciones
+              CERRAR_BLOQUE
+            | SI '(' expresion ')' ABRIR_BLOQUE
+                instrucciones
+              CERRAR_BLOQUE OTRO ABRIR_BLOQUE
+                instrucciones
               CERRAR_BLOQUE
             ;            
 

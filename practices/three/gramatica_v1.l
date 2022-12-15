@@ -15,6 +15,8 @@ LETRA [a-zA-Z]
 "leer"                      { return LEER; }
 "imprimir"                  { return IMPRIMIR; }
 "para"                      { return PARA; }
+"si"                        { return SI; }
+"otro"                      { return OTRO; }
 "{"                         { return ABRIR_BLOQUE; }
 "}"                         { return CERRAR_BLOQUE; }
 "entero"                    { return ENTERO; }
