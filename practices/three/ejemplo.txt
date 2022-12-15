@@ -7,7 +7,18 @@ principal() {
     cadena p <- "hola";
     doble i <- "hola2";
     a<-2;
-    mientras(a - 6 > aaaa && a) {
+    mientras(a > 5+1 ) {
         imprimir("a");
     };
-}
+
+    si(a) {
+        imprimir("a");
+    } otro {
+        imprimir("a");
+    };
+
+    para ( entero i<-5; a ; a){
+        imprimir("a");
+    };
+
+} 
