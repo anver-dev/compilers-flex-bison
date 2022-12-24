@@ -33,7 +33,7 @@ struct nodo *insertar_inicio(struct nodo *primer_nodo, int dato) {
     return primer_nodo; 
 }
 
-void imprimir_lista(struct nodo *primer_nodo){
+void imprimir_lista(struct nodo *primer_nodo) {
     if (esta_vacia(primer_nodo)) {
         printf("\nLista vacia\n");
         return; 
@@ -83,7 +83,7 @@ int buscar_dato(struct nodo *primer_nodo, int dato) {
     } else {
         struct nodo *aux = primer_nodo; 
         while (aux != NULL){
-            if (aux->dato == dato){
+            if (aux->dato == dato) {
                 return 1; 
             }
 
@@ -110,18 +110,18 @@ struct nodo *borrar_inicio(struct nodo *primer_nodo) {
 }
 
 struct nodo *borrar_final(struct nodo *primer_nodo) {
-    if (esta_vacia(primer_nodo)){
+    if (esta_vacia(primer_nodo)) {
         printf("\nLista vacia");
         return NULL; 
     } else {
         struct nodo *aux2 = primer_nodo; 
         struct nodo *aux1 = NULL;
 
-        if (aux2->sig == NULL){
+        if (aux2->sig == NULL) {
             return borrar_inicio(primer_nodo); 
         }
 
-        while (aux2->sig != NULL){
+        while (aux2->sig != NULL) {
             aux1 = aux2; 
             aux2 = aux2->sig; 
         }
@@ -134,14 +134,14 @@ struct nodo *borrar_final(struct nodo *primer_nodo) {
 }
 
 struct nodo *borrar_orden(struct nodo *primer_nodo, int dato) {
-    if (esta_vacia(primer_nodo)){
+    if (esta_vacia(primer_nodo)) {
         printf("\n Lista vacia");
         return NULL; 
     }
     /* No está completo */
 }
 
-int main(){
+int main() {
     imprimir_lista(NULL);
 
     struct nodo *primer_nodo = crear_nodo(2, NULL);

@@ -1,4 +1,8 @@
 %{
+  /* Equipo: 
+    - Ana Karina Vergara Guzman (2153010383)
+    - Yessicaa Fabiola Santiago Valdes (2173011484)
+  */
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
