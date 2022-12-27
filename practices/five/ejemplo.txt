@@ -1,0 +1,8 @@
+principal() {
+    entero a; 
+    entero b;
+
+    entero a; 
+
+    a <- b;
+} 
