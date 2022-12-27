@@ -1,0 +1,24 @@
+principal() {
+    entero a, n, m, o, a1;
+    entero b, c, d, x <- 3;
+    entero b <- n; 
+    entero z, w <- 3;
+    flotante v <- 5.2;
+    cadena p <- "hola";
+    doble i <- "hola2";
+    a<-2;
+    mientras(a > 5+1 ) {
+        imprimir("a");
+    };
+
+    si(a) {
+        imprimir("a");
+    } otro {
+        imprimir("a");
+    };
+
+    para ( entero i<-5; a ; a){
+        imprimir("a");
+    };
+
+} 
