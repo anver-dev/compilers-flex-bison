@@ -1,0 +1,4 @@
+principal(){
+    cadena a;
+    leer(a);
+}
